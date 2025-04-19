@@ -1,0 +1,1177 @@
+/* Global Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    list-style: none;
+}
+
+/* Color Variables */
+:root {
+    --space: 2rem;    
+    --main-color: #000000; 
+    --secondary-color: #ff8c00; 
+    --accent-color: #ffa500; 
+    --background-color: #ffffff;
+    --white-alpha-40: rgba(255, 255, 255, 0.40);
+    --white-alpha-25: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(5px); 
+    --box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.40);
+    --border-color: rgba(0, 0, 0, 0.25);
+}
+
+/* ----------Global Styles -------------*/
+body {
+    background-color: var(--background-color);
+    color: var(--main-color);
+    font-family: Arial, sans-serif;
+}
+html{
+    scroll-behavior: smooth;
+}
+/*-------------------all buttons---------------*/
+.btn{
+    background-color: var(--background-color);
+    backdrop-filter: var(--backdrop-filter);
+    color: var(--accent-color);
+    border: 2px solid var(--white-alpha-25);
+    box-shadow: var(--box-shadow);
+    padding: 8px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
+    margin: 5px;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+    position: relative;
+    overflow: hidden;
+}
+.btn::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    border-radius: 30%;
+    background-color: var(--secondary-color);
+    z-index: -1;
+    transition: width 0.3s ease;
+}
+.btn:hover::before{
+    width: 100%;
+}
+.btn:hover {
+    background-color: var(--accent-color);
+    color: var(--background-color);
+}
+/*-------------empty-------------------*/
+.empty{
+    background-color: var(--white-alpha-25);
+    border: 2px solid var(--white-alpha-40);
+    backdrop-filter: var(--backdrop-filter);
+    box-shadow: var(--box-shadow);
+    text-transform: capitalize;
+    color: var(--main-color);
+    padding: 1.5rem;
+    text-align: center;
+    margin: 2rem auto; 
+}
+.empty p{
+    font-size: 20px;
+    margin-bottom: 2rem;
+}
+input[type= 'submit']{
+    cursor: pointer;
+}
+input[type= 'submit']:hover{
+    color: var(--secondary-color);
+}
+/*------------user icon Profile Section-----------------*/
+.profile-detail {
+    background-color: var(--background-color);
+    border: 2px solid var(--white-alpha-40);
+    box-shadow: var(--box-shadow);
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 300px;
+    margin: 0 auto;
+}
+.profile-detail .profile img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    background-color: var(--background-color);
+    border: 2px solid var(--white-alpha-40);
+    padding: 5px;
+    transition: transform 0.3s ease-in-out;
+}
+.profile-detail .profile img:hover {
+    transform: scale(1.05);
+}
+.profile-detail .profile p {
+    font-size: 1.2rem;
+    color: gray;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.profile-detail .flex-btn {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 15px;
+}
+.profile-detail .flex-btn .btn {
+    background-color: var(--background-color);
+    color: var(--accent-color);
+    border: 2px solid var(--white-alpha-40);
+    padding: 8px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+    font-size: 1rem;
+}
+
+.profile-detail .flex-btn .btn:hover {
+    background-color: var(--accent-color);
+    color: var(--background-color);
+}
+
+@media (max-width: 768px) {
+    .profile-detail {
+        max-width: 100%;
+        padding: 1rem;
+    }
+
+    .profile-detail .flex-btn {
+        flex-direction: column;
+        gap: 8px;
+    }
+}
+/*-------------------Forms page--------------------*/
+.form-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    min-height: 100vh;
+    padding: 4% 0;
+    position: relative;
+}
+.form-container form {
+    background-color: var(--white-alpha-25);
+    border: 2px solid var(--white-alpha-40);
+    backdrop-filter: var(--backdrop-filter);
+    box-shadow: var(--box-shadow);
+    padding: 2rem;
+    border-radius: .5rem;
+}
+.form-container .register .img-box img{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    text-align: center;
+    padding: 10px;
+    background-color: var(--background-color);
+}
+.form-container form h3 {
+    text-align: center;
+    font-size: 2rem;
+    color: var(--main-color);
+    font-weight: bold;
+}
+
+.form-container form .box {
+    background-color: var(--background-color);
+    border: 2px solid var(--border-color);
+    box-shadow: var(--box-shadow);
+    width: 100%;
+    border-radius: 0.5rem;
+    padding: 1rem;
+}
+
+input[type='submit'] {
+    background-color: var(--secondary-color);
+    color: var(--background-color);
+    cursor: pointer;
+    padding: 0.8rem 1.5rem;
+    border-radius: 1rem;
+    font-size: 1.2rem;
+}
+
+input[type='submit']:hover {
+    background-color: var(--accent-color);
+    color: var(--main-color);
+}
+
+/*-----------Custom Scroll Bar----------------*/
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: white;
+    border-radius: 20px;
+    border-radius: 40px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    background-color: var(--secondary-color);
+    position: relative;
+}
+::-webkit-scrollbar-track {
+    background-color: transparent;
+    background-color: white;
+    border-radius: 20px;
+    border-radius: 40px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+/*-----------------registration and login form--------------------*/
+.form-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    min-height: 80vh;
+    padding: 4% 0;
+    position: relative;
+}
+.form-container form .flex{
+    display: flex;
+    gap: 2rem;
+}
+.form-container form .flex .col{
+    flex: 1 1 25rem;
+}
+.form-container form{
+    background-color: var(--white-alpha-25);
+    border: 2px solid var(--white-alpha-40);
+    backdrop-filter: var(--backdrop-filter);
+    box-shadow: var(--box-shadow);
+    border-radius: .5rem;
+    padding: 2rem;
+}
+.form-container .login{
+    width: 50rem;
+}
+.form-container .register{
+    width: 50rem;
+}
+.form-container .register .img-box{
+    text-align: center;
+    margin-bottom: 1rem;
+}
+.form-container form h3{
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: var(--main-color);
+    text-transform: capitalize;
+    font-weight: bolder;
+}
+.form-container form p{
+    padding-top: 1rem;
+    font-size: 1.2rem;
+    text-transform: capitalize;
+}
+.form-container form p span{
+    color: red;
+}
+.form-container form .link{
+    padding-bottom: 1rem;
+    font-size: 1.2rem;
+    text-transform: capitalize;
+}
+.form-container form .link a{
+    columns: var(--main-color);
+}
+.form-container form .link a:hover{
+    color: red;
+    text-decoration: underline;
+}
+.form-container form textarea{
+    height: 20rem;
+    resize: none;
+}
+.form-container form .btn{
+    width: 100%;
+    font-size: 1.3rem;
+}
+.form-container .image{
+    width: 100%;
+    height: 30rem;
+}
+.post-editor input[type="submit"]{
+    width: 49%;
+}
+/*------------header section------------------------*/
+header {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    height: 80px;
+    z-index: 151;
+    box-shadow: 0px 5px 10px 0px #aaa;
+    padding: 0 50px;
+    background-color: #ffffff; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .right {
+    display: flex;
+}
+
+header .right i.fa-bars {
+    font-size: 2rem;
+    padding: 0.5rem;
+    color: #ff6600; 
+    cursor: pointer;
+    transition: color 0.3s ease, transform 0.3s ease;
+    display: none;
+}
+
+#user-btn {
+    font-size: 2rem;
+    padding: .5rem;
+    color: #ff6600; 
+    cursor: pointer;
+    transition: .6s;
+}
+
+.profile-detail {
+    background-color: rgba(0, 0, 0, 0.1); 
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(5px);
+    box-shadow: 0px 5px 10px 0px #aaa;
+    position: absolute;
+    top: 125%;
+    right: 2rem;
+    border-radius: .5rem;
+    width: 22rem;
+    padding: 1 5rem .5rem;
+    animation: .2s linear fadeIn;
+    text-align: center;
+    overflow: hidden;
+    display: none;
+}
+
+@keyframes fadeIn {
+    0% {
+        transform: translateY(1rem);
+    }
+}
+
+.profile-detail.active {
+    display: block;
+}
+
+.profile-detail p{
+    padding-bottom: .7rem;
+    font-size: 1.5rem;
+    text-transform: capitalize;
+    color: #888888;
+}
+
+.profile-detail .flex-btn{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.profile-detail .flex-btn .btn{
+    margin: 0 .5rem;
+}
+
+.sidebar {
+    width: 100%;
+    padding-top: 2rem;
+    overflow: auto;
+}
+.sidebar-container {
+    position: fixed;
+    left: 0;
+    top: 20px;
+    height: 100vh;
+    width: 250px;
+    background-color: var(--white-alpha-25);
+    backdrop-filter: var(--backdrop-filter);
+    box-shadow: 0px 5px 10px 0px #bdbbbb;
+    z-index: 150;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+}
+.sidebar h5 {
+    text-transform: uppercase;
+    color: #ff6600;
+    padding: .5rem 1rem;
+    margin: .5rem 0;
+}
+
+.profile {
+    margin: .5rem auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.sidebar .profile {
+    margin-top: 2.5rem;
+}
+
+.profile .logo-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    box-shadow: var(--box-shadow);
+    padding: .5rem;
+    background-color: var(--white-alpha-40);
+    margin-top: 10px;
+    margin-bottom: 1rem;
+}
+
+.sidebar .profile p {
+    margin-top: .5rem;
+    text-transform: uppercase;
+    font-weight: bolder;
+    color: gray;
+    font-size: 1.3rem;
+}
+
+.sidebar ul li {
+    padding: 1rem;
+    background-color: white;
+    border: 2px solid white;
+    backdrop-filter: blur(5px);
+    box-shadow: 0px 5px 10px 0px gray;
+    position: relative;
+    transition: .5s;
+    margin: .5rem 0;
+}
+
+.sidebar ul li::before {
+    position: absolute;
+    content: '';
+    left: 0;
+    top: 0;
+    height: 0%;
+    width: 5px;
+    background-color: #ff6600; 
+    z-index: 2;
+    transition: all 200ms linear;
+}
+
+.sidebar ul li:hover::before {
+    height: 100%;
+}
+
+.sidebar ul li i {
+    color: #ff6600;
+    font-size: 20px;
+    margin-right: 2rem;
+}
+.sidebar .navbar ul li a {
+    text-transform: uppercase;
+    color: gray;
+    box-shadow:white;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.social-links {
+    margin-bottom: 3rem;
+}
+
+.social-links i {
+    background-color: rgb(239, 241, 239);
+    border: 2px solid rgb(248, 246, 246);
+    backdrop-filter: blur(5px);
+    box-shadow: 0px 5px 10px 0px rgba(255, 255, 255, 0.685);
+    cursor: pointer;
+    margin: .3rem;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    font-size: 20px;
+    transition: .5s;
+    border-radius: 50%;
+    color: #ff6600;
+}
+
+.social-links i:hover {
+    background-color: #ffffff;
+    border: 2px solid #ff6600;
+}
+
+/*-------------media screen for profile--------*/
+@media screen and (max-width: 99px) {
+    .right i.fa-bars {
+        font-size: 2.5rem;
+        display: block;
+    }
+
+    .sidebar {
+        padding: 4rem;
+        position: fixed;
+        width: 0;
+        transition: .5s;
+        top: 7%;
+    }
+
+    .sidebar.active {
+        width: 300px;
+    }
+
+    .sidebar .profile {
+        margin-top: .5rem;
+    }
+
+    section {
+        width: 100%;
+    }
+
+    .toggle-btn {
+        display: block;
+        margin-left: .2rem;
+    }
+
+    header .right {
+        display: flex;
+    }
+
+    .right .toggle-btn {
+        font-size: 2rem;
+        padding: 0.1rem;
+        color: #ff6600; /* Orange color */
+        cursor: pointer;
+        transition: .6s;
+    }
+}
+/*---------------dashboad---------------------*/
+.main-container {
+    margin-left: 260px;
+    width: calc(100% - 260px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 100px;
+}
+
+.dashboard .box-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    width: 100%;
+    padding: 1.5rem;
+    align-items: center;
+}
+
+.dashboard .box-container .box {
+    background-color: var(--white-alpha-25);
+    border: 2px solid var(--white-alpha-40);
+    backdrop-filter: var(--backdrop-filter);
+    box-shadow: var(--box-shadow);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.dashboard .box-container .box h3 {
+    font-size: 2.7rem;
+    margin-bottom: -1rem;
+}
+
+.dashboard .box-container .box p {
+    padding: 1rem;
+    font-size: 1.8rem;
+    text-transform: capitalize;
+    margin: 1rem 0;
+}
+/*---------------add product-----------------*/
+.main-container .heading{
+    text-align: center;
+    line-height: 1.5;
+}
+.main-container .heading h1{
+    font-size: 2rem;
+    text-transform: capitalize;
+}
+.main-container .heading span{
+    color: var(--main-color);
+    text-transform: capitalize;
+    font-size: 16px;
+}
+.main-container .heading img{
+    margin-top: .5rem;
+    width: 150px!important;
+}
+.post_editor{
+    padding: 4%;
+    padding-top: 10px;
+    margin-bottom: 2%;
+}
+.flex-btn{
+    display: flex;
+    justify-content: space-between;
+}
+.flex-btn .btn{
+    margin: .5rem;
+}
+/*---------------view product-----------------*/
+.shop-post .box-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    justify-content: center;
+    align-items: stretch;
+    padding: 20px;
+}
+
+.shop-post .box-container .box {
+    background-color: white;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+.shop-post .box-container .box:hover {
+    transform: scale(1.05);
+}
+
+.shop-post .box-container .box .image {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.shop-post .box-container .box .content {
+    margin-top: 10px;
+}
+
+.shop-post .box-container .box .status {
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.shop-post .box-container .box .price {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 10px 0;
+    color: black;
+}
+.shop-post .box-container .box .btn {
+    background-color: white;
+    color: var(--accent-color);
+    border: 2px solid var(--white-alpha-40);
+    padding: 8px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
+    margin: 5px;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+.btn::before{
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    border-radius: 30%;
+    background-color: var(--secondary-color);
+    z-index: -1;
+    transition: width 0.3s ease;
+    text-align: center;
+}
+.shop-post .box-container .box .btn:hover {
+    background-color: #f2f2f2;
+    color: darkorange;
+    border-color: darkorange;
+}
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .shop-post .box-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .shop-post .box-container {
+        grid-template-columns: 1fr; 
+    }
+}
+/*-------------edit product page---------------*/
+.edit_post .box-container .form-container .input-field p {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+}
+.edit_post .box-container .form-container .input-field .box {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+.edit_post .box-container .form-container .input-field select {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.edit_post .box-container .form-container .input-field .image {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+.edit_post .box-container .form-container .input-field .flex-btn {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+.edit_post .box-container .form-container .input-field .btn {
+    background-color: var(--background-color);
+    color: var(--accent-color);
+    border: 2px solid var(--white-alpha-40);
+    size: 2px;
+    padding: 8px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
+    margin: 5px;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+.edit_post .box-container .form-container .input-field .btn::before{
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    border-radius: 30%;
+    background-color: var(--secondary-color);
+    z-index: -1;
+    transition: width 0.3s ease;
+    text-align: center;
+}
+.edit_post .box-container .form-container .input-field .btn:hover {
+    background-color: var(--accent-color);
+    color: var(--background-color);
+}
+.edit_post form .flex-btn input[name="delete_image"] {
+    width: 49%; 
+    height: 3rem;
+    text-align: center;
+    margin-top: 0.7rem;
+}
+/*------------read product page---------------*/ 
+.read-post {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+}
+.read-post form {
+    max-width: 600px;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    text-align: center;
+}
+.read-post form .status {
+    border-radius: 20px;
+    padding: 8px 15px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    display: inline-block;
+}
+.read-post form .price {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: black;
+}
+.read-post form img {
+    width: 100%;
+    max-height: 250px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-top: 15px;
+    border: 2px solid #ddd;
+}
+.read-post form .title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+    margin-top: 15px;
+    text-transform: uppercase;
+}
+.read-post form .content {
+    line-height: 1.8;
+    font-size: 1.2rem;
+    color: #555;
+    padding: 10px 0;
+}
+.read-post form .extra-info {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    font-size: 1.1rem;
+    color: #444;
+    gap: 15px;
+}
+
+.read-post form .extra-info p {
+    margin: 0;
+    padding: 10px;
+    background: var(--background-color);
+    width: 100%;
+    text-align: center;
+    font-weight: 500;
+    box-shadow: 0 1px 3px rgb(245, 243, 243);
+}
+.read-post form .extra-info p strong {
+    color: #333;
+}
+.read-post form .flex-btn {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.read-post form .flex-btn .btn {
+    width: 32%;
+    padding: 10px 15px;
+    background-color:var(--background-color);
+    color: var(--accent-color);
+    border: 2px solid var(--white-alpha-40);
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    text-align: center;
+    transition: 0.3s ease;
+}
+.read-post form .flex-btn .btn:hover {
+    background-color: var(--accent-color);
+    color: var(--background-color);
+}
+
+.read-post form .flex-btn a {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/*-----------------profile page--------------*/
+.user-profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+}
+
+.user-profile .heading {
+    text-align: center;
+}
+
+.user-profile .details {
+    background: var(--background-color);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 600px;
+    width: 100%;
+}
+
+.user-profile .user img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    background-color: var(--background-color);
+    border: 2px solid var(--white-alpha-40);
+    padding: 5px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.user-profile .user h3 {
+    color: gray;
+    font-size: 1.8rem;
+    margin-bottom: 5px;
+}
+
+.user-profile .user span {
+    font-size: 1.2rem;
+    color: black;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.user-profile .user .btn {
+    background-color: var(--background-color);
+    color: var(--accent-color);
+    border: 2px solid var(--white-alpha-40);
+    padding: 8px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.user-profile .user .btn:hover {
+    background-color: var(--accent-color);
+    color: var(--background-color);
+}
+
+.user-profile .flex {
+    display: flex;
+    justify-content: space-around;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.user-profile .box {
+    background: var(--white-alpha-10);
+    padding: 1.5rem;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    flex: 1;
+}
+
+.user-profile .box span {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--accent-color);
+}
+
+.user-profile .box p {
+    font-size: 1.2rem;
+    color: gray;
+    margin: 10px 0;
+}
+
+.user-profile .box .btn {
+    background-color: var(--background-color);
+    color: var(--accent-color);
+    border: 2px solid var(--white-alpha-40);
+    padding: 8px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.user-profile .box .btn:hover {
+    background-color: var(--accent-color);
+    color: var(--background-color);
+}
+
+@media (max-width: 768px) {
+    .user-profile .flex {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+/*------------update profile details page----------*/
+.update-container{
+    width: 75vw;
+    padding: 2rem;
+    padding-top: 10px;
+}
+.update-container .form-container .register{ 
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+.update-container .form-container .input-field {
+    margin-bottom: 20px;
+}
+.update-container .form-container .input-field p {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+}
+.update-container .form-container .input-field .box {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+.update-container .form-container .flex{
+    display: flex;
+    gap: 20px;
+}
+.update-container .form-container .col{
+    flex: 1;
+}
+
+.update-container .form-container .img-box{
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.update-container .form-container .img-box img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    background-color: var(--background-color);
+    border: 2px solid var(--white-alpha-40);
+    padding: 5px;
+    transition: transform 0.3s ease-in-out;
+}
+.update-container .form-container .btn{
+    background-color: var(--background-color);
+    color: var(--accent-color);
+    border: 2px solid var(--white-alpha-40);
+    padding: 8px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.update-container .form-container .btn:hover {
+    background-color: var(--accent-color);
+    color: var(--background-color);
+}
+
+.update-container .form-container .flex-btn{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+}
+/*-------------unread messages page---------------*/
+.message-container .box-container .box{
+    line-height: 2;
+    padding: 2rem;
+}
+.message-container .box-container .box .name{
+    text-transform: capitalize;
+    font-size: 1.5rem;
+}
+.message-container .box-container .box h4{
+    text-transform: capitalize;
+    color: var(--main-color);
+}
+.message-container .box-container .box p{
+    margin-bottom: 1rem;
+}
+/*------------admin_order--------------------*/
+.order-container .box-container .box{
+    position: relative;
+    padding: 1rem;
+}
+.order-container .box-container .box .status{
+    position: absolute;
+    left: -4%;
+    top: 1%;
+    text-transform: uppercase;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    border-radius: .5rem;
+    box-shadow: var(--box-shadow);
+    background-color: var(--white-alpha-40);
+    display: inline-block;
+    padding: .5rem;
+}
+.order-container .box-container .box .details{
+    margin-top: 3rem;
+    line-height: 2;
+    color: gray;
+    text-transform: capitalize;
+}
+.order-container .box-container .box span{
+    text-transform: none;
+}
+/*------------user accounts-------------------*/
+.user-container .box-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    justify-content: center;
+    align-items: start;
+    padding: 2rem;
+}
+.user-container .box-container .box {
+    background-color: var(--background-color);
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    margin-top: 30px;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: var(--box-shadow);
+    transition: transform 0.3s ease-in-out;
+}
+.user-container .box-container .box:hover {
+    transform: translateY(-5px);
+}
+.user-container .box-container .box p {
+    color: gray;
+    font-size: 1rem;
+    margin: 5px 0;
+}
+.user-container .box-container .box span{
+    text-transform: none;
+}
+.user-container .box-container .box img{
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    box-shadow: var(--box-shadow);
+    padding: .5rem;
+    background-color: var(--white-alpha-40);
+    margin-top: -5rem;
+    margin-bottom: 1rem;
+}
+@media (max-width: 900px) {
+    .user-container .box-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .user-container .box-container {
+        grid-template-columns: 1fr;
+    }
+}
